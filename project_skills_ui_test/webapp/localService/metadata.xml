@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.xml" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Alias="Capabilities" Namespace="Org.OData.Capabilities.V1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.xml" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Alias="Validation" Namespace="Org.OData.Validation.V1"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="main" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityContainer Name="EntityContainer" m:IsDefaultEntityContainer="true">
+                <EntitySet Name="Industries" EntityType="main.Industries"/>
+                <EntitySet Name="Employees" EntityType="main.Employees"/>
+                <EntitySet Name="Employee2Cluster" EntityType="main.Employee2Cluster"/>
+                <EntitySet Name="Cluster" EntityType="main.Cluster"/>
+                <EntitySet Name="Cluster2Leaf_Skills" EntityType="main.Cluster2Leaf_Skills"/>
+                <EntitySet Name="Leaf_Skills" EntityType="main.Leaf_Skills"/>
+                <AssociationSet Name="Employee2Cluster_empl" Association="main.Employee2Cluster_empl">
+                    <End Role="Employee2Cluster" EntitySet="Employee2Cluster"/>
+                    <End Role="Employees" EntitySet="Employees"/>
+                </AssociationSet>
+                <AssociationSet Name="Employee2Cluster_clust" Association="main.Employee2Cluster_clust">
+                    <End Role="Employee2Cluster" EntitySet="Employee2Cluster"/>
+                    <End Role="Cluster" EntitySet="Cluster"/>
+                </AssociationSet>
+                <AssociationSet Name="Cluster2Leaf_Skills_clust" Association="main.Cluster2Leaf_Skills_clust">
+                    <End Role="Cluster2Leaf_Skills" EntitySet="Cluster2Leaf_Skills"/>
+                    <End Role="Cluster" EntitySet="Cluster"/>
+                </AssociationSet>
+                <AssociationSet Name="Cluster2Leaf_Skills_skill" Association="main.Cluster2Leaf_Skills_skill">
+                    <End Role="Cluster2Leaf_Skills" EntitySet="Cluster2Leaf_Skills"/>
+                    <End Role="Leaf_Skills" EntitySet="Leaf_Skills"/>
+                </AssociationSet>
+            </EntityContainer>
+            <EntityType Name="Industries">
+                <Key>
+                    <PropertyRef Name="INDUSTRY_TYPE"/>
+                </Key>
+                <Property Name="industry_cluster" Type="Edm.String"/>
+                <Property Name="INDUSTRY_TYPE" Type="Edm.String" Nullable="false"/>
+            </EntityType>
+            <EntityType Name="Employees">
+                <Key>
+                    <PropertyRef Name="PS_NO"/>
+                </Key>
+                <NavigationProperty Name="employee_cluster" Relationship="main.Employee2Cluster_empl" FromRole="Employees" ToRole="Employee2Cluster"/>
+                <Property Name="base_sbu" Type="Edm.String"/>
+                <Property Name="deputed_bu" Type="Edm.String"/>
+                <Property Name="deputed_sbu" Type="Edm.String"/>
+                <Property Name="absorption_date" Type="Edm.DateTime" sap:display-format="Date"/>
+                <Property Name="unbilled_ageing_derived_billed_status" Type="Edm.String"/>
+                <Property Name="billed_allocation_percentage" Type="Edm.Byte"/>
+                <Property Name="deployement_location" Type="Edm.String"/>
+                <Property Name="account_group_age" Type="Edm.Int32"/>
+                <Property Name="cummulative_bench_age" Type="Edm.Int32"/>
+                <Property Name="unbilled_age_in_current_bu" Type="Edm.Int32"/>
+                <Property Name="ageing_in_same_project" Type="Edm.Int32"/>
+                <Property Name="business_unit" Type="Edm.String"/>
+                <Property Name="base_location" Type="Edm.String"/>
+                <Property Name="delivery_unit" Type="Edm.String"/>
+                <Property Name="PS_NO" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="employee_name" Type="Edm.String"/>
+                <Property Name="email" Type="Edm.String"/>
+                <Property Name="grade" Type="Edm.String"/>
+                <Property Name="level" Type="Edm.String"/>
+                <Property Name="billing_status" Type="Edm.String"/>
+                <Property Name="resigned" Type="Edm.String"/>
+                <Property Name="practice" Type="Edm.String"/>
+                <Property Name="sub_practice" Type="Edm.String"/>
+                <Property Name="lti_experience" Type="Edm.Int32"/>
+                <Property Name="sap_experience" Type="Edm.Int32"/>
+                <Property Name="total_experience" Type="Edm.Int32"/>
+                <Property Name="lwd" Type="Edm.DateTime" sap:display-format="Date"/>
+                <Property Name="resigned_on" Type="Edm.DateTime" sap:display-format="Date"/>
+                <Property Name="deputed_country" Type="Edm.String"/>
+                <Property Name="date_of_joining" Type="Edm.DateTime" sap:display-format="Date"/>
+                <Property Name="customer_name" Type="Edm.String"/>
+                <Property Name="project_id" Type="Edm.String"/>
+                <Property Name="project_name" Type="Edm.String"/>
+                <Property Name="project_start_date" Type="Edm.DateTime" sap:display-format="Date"/>
+                <Property Name="project_end_date" Type="Edm.DateTime" sap:display-format="Date"/>
+                <Property Name="customer_group" Type="Edm.String"/>
+                <Property Name="project_manager_name" Type="Edm.String"/>
+                <Property Name="project_manager_ps_number" Type="Edm.String"/>
+                <Property Name="reporting_manager" Type="Edm.String"/>
+                <Property Name="ps_number_of_reporting_manager" Type="Edm.String"/>
+                <Property Name="designation" Type="Edm.String"/>
+                <Property Name="location" Type="Edm.String"/>
+                <Property Name="source_indicator" Type="Edm.String"/>
+                <Property Name="active" Type="Edm.Boolean"/>
+                <Property Name="profile_pic" Type="Edm.String"/>
+                <Property Name="primary_skill_cluster" Type="Edm.String"/>
+                <Property Name="secondary_skill_cluster" Type="Edm.String"/>
+                <Property Name="project_skill_cluster" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="Employee2Cluster">
+                <Key>
+                    <PropertyRef Name="empl_PS_NO"/>
+                </Key>
+                <NavigationProperty Name="empl" Relationship="main.Employee2Cluster_empl" FromRole="Employee2Cluster" ToRole="Employees"/>
+                <Property Name="empl_PS_NO" Type="Edm.Int32" Nullable="false"/>
+                <NavigationProperty Name="clust" Relationship="main.Employee2Cluster_clust" FromRole="Employee2Cluster" ToRole="Cluster"/>
+                <Property Name="clust_JSC" Type="Edm.String"/>
+                <Property Name="employee_skill" Type="Collection(main.Employee2Cluster_employee_skill)" Nullable="false"/>
+            </EntityType>
+            <EntityType Name="Cluster">
+                <Key>
+                    <PropertyRef Name="JSC"/>
+                </Key>
+                <Property Name="practice" Type="Edm.String"/>
+                <Property Name="JSC" Type="Edm.String" Nullable="false"/>
+                <Property Name="skills_list" Type="Edm.String"/>
+                <Property Name="horizon" Type="Edm.String"/>
+                <NavigationProperty Name="cluster_employee" Relationship="main.Employee2Cluster_clust" FromRole="Cluster" ToRole="Employee2Cluster"/>
+                <NavigationProperty Name="cluster_skill" Relationship="main.Cluster2Leaf_Skills_clust" FromRole="Cluster" ToRole="Cluster2Leaf_Skills"/>
+            </EntityType>
+            <EntityType Name="Cluster2Leaf_Skills">
+                <NavigationProperty Name="clust" Relationship="main.Cluster2Leaf_Skills_clust" FromRole="Cluster2Leaf_Skills" ToRole="Cluster"/>
+                <Property Name="clust_JSC" Type="Edm.String"/>
+                <NavigationProperty Name="skill" Relationship="main.Cluster2Leaf_Skills_skill" FromRole="Cluster2Leaf_Skills" ToRole="Leaf_Skills"/>
+                <Property Name="skill_leaf_skills" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="Leaf_Skills">
+                <Key>
+                    <PropertyRef Name="leaf_skills"/>
+                </Key>
+                <Property Name="leaf_skills" Type="Edm.String" Nullable="false"/>
+                <NavigationProperty Name="leaf_cluster" Relationship="main.Cluster2Leaf_Skills_skill" FromRole="Leaf_Skills" ToRole="Cluster2Leaf_Skills"/>
+            </EntityType>
+            <ComplexType Name="Employee2Cluster_employee_skill">
+                <Property Name="skill" Type="Edm.String"/>
+                <Property Name="rating" Type="Edm.Int32"/>
+                <Property Name="exp_years" Type="Edm.Int32"/>
+                <Property Name="exp_months" Type="Edm.Int32"/>
+            </ComplexType>
+            <Association Name="Employee2Cluster_empl">
+                <End Role="Employee2Cluster" Type="main.Employee2Cluster" Multiplicity="*"/>
+                <End Role="Employees" Type="main.Employees" Multiplicity="0..1"/>
+                <ReferentialConstraint>
+                    <Principal Role="Employees">
+                        <PropertyRef Name="PS_NO"/>
+                    </Principal>
+                    <Dependent Role="Employee2Cluster">
+                        <PropertyRef Name="empl_PS_NO"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="Employee2Cluster_clust">
+                <End Role="Employee2Cluster" Type="main.Employee2Cluster" Multiplicity="*"/>
+                <End Role="Cluster" Type="main.Cluster" Multiplicity="0..1"/>
+                <ReferentialConstraint>
+                    <Principal Role="Cluster">
+                        <PropertyRef Name="JSC"/>
+                    </Principal>
+                    <Dependent Role="Employee2Cluster">
+                        <PropertyRef Name="clust_JSC"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="Cluster2Leaf_Skills_clust">
+                <End Role="Cluster2Leaf_Skills" Type="main.Cluster2Leaf_Skills" Multiplicity="*"/>
+                <End Role="Cluster" Type="main.Cluster" Multiplicity="0..1"/>
+                <ReferentialConstraint>
+                    <Principal Role="Cluster">
+                        <PropertyRef Name="JSC"/>
+                    </Principal>
+                    <Dependent Role="Cluster2Leaf_Skills">
+                        <PropertyRef Name="clust_JSC"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="Cluster2Leaf_Skills_skill">
+                <End Role="Cluster2Leaf_Skills" Type="main.Cluster2Leaf_Skills" Multiplicity="*"/>
+                <End Role="Leaf_Skills" Type="main.Leaf_Skills" Multiplicity="0..1"/>
+                <ReferentialConstraint>
+                    <Principal Role="Leaf_Skills">
+                        <PropertyRef Name="leaf_skills"/>
+                    </Principal>
+                    <Dependent Role="Cluster2Leaf_Skills">
+                        <PropertyRef Name="skill_leaf_skills"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Annotations Target="main.EntityContainer/Industries" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="true"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="true"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="true"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="main.EntityContainer/Employees" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="true"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="true"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="true"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="main.Employees/email" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Validation.Pattern" String="^[a-z0-9_.±]+@[a-z0-9-]+.[a-z0-9-.]+$"/>
+            </Annotations>
+            <Annotations Target="main.EntityContainer/Employee2Cluster" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="true"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="true"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="true"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="main.EntityContainer/Cluster" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="true"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="true"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="true"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="main.EntityContainer/Cluster2Leaf_Skills" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="true"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="true"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="true"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="main.EntityContainer/Leaf_Skills" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="true"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="true"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="true"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

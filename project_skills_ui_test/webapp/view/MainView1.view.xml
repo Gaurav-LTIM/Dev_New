@@ -1,0 +1,50 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="projectskillsuitest.controller.MainView1" displayBlock="true">
+    <Page id="page" title="{i18n>title}">
+    <!-- <Table id="idTable" items="{path: 'EmployeesModel>/',          sorter: { path: 'EmployeesModel>cluster_array/0/clust_JSC', descending: false, group: '.getGroup' },           groupHeaderFactory: '.getGroupHeader'}">
+        <columns>
+    <Column id="_IDGenColumn1">
+    <Text id="_IDGenText1" text="Cluster"/>
+    </Column>
+    <Column id="_IDGenColumn2">
+    <Text id="_IDGenText2" text="Skill"/>
+    </Column>
+    <Column id="_IDGenColumn3">
+    <Text id="_IDGenText3" text="Rating"/>
+    </Column>
+    <Column id="_IDGenColumn4">
+    <Text id="_IDGenText4" text="EXP"/>
+    </Column>
+    </columns>
+    <items>
+    <ColumnListItem id="_IDGenColumnListItem1">
+    <cells>
+    <Text id="_IDGenText5" text="{EmployeesModel>cluster_array/0/clust_JSC}"/>
+    <Text id="_IDGenText6" text="{EmployeesModel>cluster_array/0/employee_skill/0/skill}"/>
+    <Text id="_IDGenText7" text="{EmployeesModel>cluster_array/0/employee_skill/0/rating}"/>
+    <Text id="_IDGenText8" text="{EmployeesModel>cluster_array/0/employee_skill/0/exp_years}"/>
+    </cells>
+    </ColumnListItem>
+    </items>
+    </Table> -->
+    <GroupHeaderListItem id="item0"/>
+    <content>
+        <GroupHeaderListItem ariaLabelledBy="__xmlview0--_IDGenText2" id="item0_1720595282854"/>
+        <GroupHeaderListItem id="item1"/>
+    </content>
+    <GroupHeaderListItem id="item0_1720595384401"/>
+    <GroupHeaderListItem id="item1_1720595432139"/>
+    <sap.ui.comp.smartform:SmartForm xmlns:sap.ui.comp.smartform="sap.ui.comp.smartform" xmlns:sap.ui.comp.smartfield="sap.ui.comp.smartfield" id="form0" groups="{/Employee2Cluster}">
+    <sap.ui.comp.smartform:groups>
+        <sap.ui.comp.smartform:Group label="Group title" title="{}" id="group0">
+            <sap.ui.comp.smartform:groupElements>
+                <sap.ui.comp.smartform:GroupElement id="element2">
+                    <sap.ui.comp.smartform:elements>
+                        <sap.ui.comp.smartfield:SmartField contextEditable="false" controlContext="form" id="field2"/>
+                    </sap.ui.comp.smartform:elements>
+                </sap.ui.comp.smartform:GroupElement>
+            </sap.ui.comp.smartform:groupElements>
+        </sap.ui.comp.smartform:Group>
+    </sap.ui.comp.smartform:groups>
+    </sap.ui.comp.smartform:SmartForm>
+    </Page>
+</mvc:View>
