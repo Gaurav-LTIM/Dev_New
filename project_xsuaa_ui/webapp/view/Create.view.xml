@@ -1,0 +1,33 @@
+<mvc:View
+    controllerName="sap.btp.projectxsuaaui.controller.Create"
+	xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m">
+	<Page id="_IDGenPage1">
+      <Toolbar id="_IDGenToolbar2">
+				<Title id="_IDGenTitle1" level="H4" text="Add Employee" />
+				<ToolbarSpacer id="_IDGenToolbarSpacer3" />
+ 	  </Toolbar>
+       <ToolbarSeparator id="_IDGenToolbarSeparator001"/>
+      <content>
+                <Label id="_IDGenLabel02" text="Name" width="100%" />
+                  <Input id="name1" width="50%" />
+                <Label id="_IDGenLabel03" text="Email ID" width="100%" />
+                   <Input id="email"  width="50%" />
+                <Label id="_IDGenLabel302" text="Manager" width="100%"/>
+                   <Input id="manager"  width="50%" />
+                <Label id="_IDGenLabel022" text="Department" width="100%" />
+
+                <InputListItem id="department_12"  >
+			          <Select id="department" width="110%">
+				            <core:Item id="_IDGenItem1" key="5b690b74-f80f-4d4b-a26b-ddac619f7641" text="SAP-ABAP" />
+				            <core:Item id="_IDGenItem2" key="48d2698e-c318-4729-9acd-e580e87d04f0" text="SAP-DIGITAL" />
+				       </Select>
+		          </InputListItem>
+      </content> 
+       <ToolbarSeparator id="_IDGenToolbarSeparator1"/>
+       <Button id="_IDGenButton2" text="Save" press="savedata"  />
+               
+    </Page>
+</mvc:View>
