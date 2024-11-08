@@ -1,1 +1,11 @@
 /* Enter your custom styles here */
+
+.customMargin {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.responsiveChart{
+    height: 100%;
+    width: 100%;
+}

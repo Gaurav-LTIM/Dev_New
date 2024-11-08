@@ -1,7 +1,6 @@
 {
-  "name": "project_skills_app_ui",
+  "name": "yw_dynamic_forms",
   "version": "0.0.1",
-  "private": true,
   "description": "An SAP Fiori application.",
   "keywords": [
     "ui5",
@@ -9,17 +8,14 @@
     "sapui5"
   ],
   "main": "webapp/index.html",
-  "dependencies": {
-    "jspdf": "^2.5.1",
-    "jspdf-autotable": "^3.8.2"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "@sap/ux-ui5-tooling": "1",
-    "@ui5/cli": "^3.0.0"
+    "@ui5/cli": "^3.0.0",
+    "@sap/ux-ui5-tooling": "1"
   },
   "scripts": {
-    "start": "fiori run --open \"test/flpSandbox.html?sap-ui-xx-viewCache=false#projectskillsappui-display\"",
-    "start-local": "fiori run --config ./ui5-local.yaml --open \"test/flpSandbox.html?sap-ui-xx-viewCache=false#projectskillsappui-display\"",
+    "start": "fiori run --open \"test/flpSandbox.html?sap-ui-xx-viewCache=false#ywdynamicforms-display\"",
+    "start-local": "fiori run --config ./ui5-local.yaml --open \"test/flpSandbox.html?sap-ui-xx-viewCache=false#ywdynamicforms-display\"",
     "build": "ui5 build --config=ui5.yaml --clean-dest --dest dist",
     "deploy": "fiori verify",
     "deploy-config": "fiori add deploy-config",

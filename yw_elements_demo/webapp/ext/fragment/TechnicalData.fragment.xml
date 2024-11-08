@@ -1,0 +1,81 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" 
+	xmlns="sap.m"
+    xmlns:f="sap.f"
+	xmlns:l="sap.ui.layout"
+	xmlns:form="sap.ui.layout.form"
+	core:require="{handler: 'ywelementsdemo/ext/controller/TechnicalData.controller'}"
+	>
+
+    <VBox id="_IDGenVBox" >
+
+	<HBox justifyContent="SpaceBetween">
+	<Button text="Show Table" press="handler.onShowTable"/>
+	<Button id="editbtn" text="Edit" press="handler.onEditPress"/>
+	</HBox>
+
+	<Table id="InfraTableXML" items="{InfraTable>/fittings}">
+        <columns>
+            <Column>
+                <Text text="Fitting"/>
+            </Column>
+            <Column>
+                <Text text="Number of Fittings"/>
+            </Column>
+            <Column>
+                <Text text="Loading Units"/>
+            </Column>
+            <Column>
+                <Text text="Total Loading Units"/>
+            </Column>
+        </columns>
+        <items>
+            <ColumnListItem>
+                <cells>
+                    <Text text="{InfraTable>fitting}"/>
+                    <Input id="noOfFittingsInput" value="{InfraTable>noOfFittings}" type="Number" editable="false"/>
+                    <Text text="{InfraTable>loadingUnits}"/>
+                    <Text text="{InfraTable>totalLoadingUnits}"/>
+                </cells>
+            </ColumnListItem>
+        </items>
+    </Table>
+
+	<Button id="calculatebtn" text="Calculate" press="handler.onCalculate" visible="false"/>
+
+    <HBox>
+		<Label labelFor="num1" text="Number 1:" />
+		<Input id="input1" type="Number" />
+	</HBox>
+	<HBox>
+		<Label labelFor="num2" text="Number 2:" />
+		<Input id="input2" type="Number" />
+		<!-- <Input id="input2" type="Number" liveChange="handler.onLiveChange"/> -->
+	</HBox>
+	<Button text="Add" press="handler.onAdd"/>
+	<HBox>
+		<Label text="Result: " />
+		<Text id="result" />
+	</HBox>
+    <VBox id="_IDGenVBox3" class="sapUiSmallMargin">
+		
+		<Label id="_IDGenLabel" labelFor="rbg4" text="Select any one option" /> 
+		<RadioButtonGroup id="rbg4" valueState="Warning" select="handler.onRadioButtonSelect" selectedIndex="-1">
+			<RadioButton id="RB4-1" text="Yes" />
+			<RadioButton id="RB4-2" text="No" />
+		</RadioButtonGroup>
+	</VBox>
+    		<VBox id="_IDGenVBox1">
+		<CheckBox id="_IDGenCheckBox1" text="Option a" selected="true" />
+		<CheckBox id="_IDGenCheckBox2" text="Option b" />
+		<CheckBox id="_IDGenCheckBox3" text="Option c" selected="true" />
+		<CheckBox id="_IDGenCheckBox4" text="Option d" />
+	</VBox>
+    </VBox>
+
+</core:FragmentDefinition>
+
+
+<!-- onRadioButtonSelect: function (oEvent) {
+            var sSelectedText = oEvent.getSource().getSelectedButton().getText();
+            MessageToast.show("You selected: " + sSelectedText);
+        } -->

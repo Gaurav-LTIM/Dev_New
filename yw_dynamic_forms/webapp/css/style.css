@@ -1,0 +1,10 @@
+/* Enter your custom styles here */
+.questionLabel {
+    display: flex;
+    align-items: center;
+}
+
+.questionInput {
+    display: flex;
+    align-items: center;
+}

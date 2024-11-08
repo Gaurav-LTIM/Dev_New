@@ -2,19 +2,14 @@
 
 specVersion: "3.1"
 metadata:
-  name: projectskillsappui
+  name: ywdynamicforms
 type: application
 framework:
   name: SAPUI5
-  version: 1.125.0
+  version: 1.128.1
   libraries:
     - name: sap.m
     - name: sap.ui.core
-    - name: sap.f
-    - name: sap.suite.ui.generic.template
-    - name: sap.ui.comp
-    - name: sap.ui.generic.app
-    - name: sap.ui.table
     - name: sap.ushell
     - name: themelib_sap_horizon
 server:
@@ -29,16 +24,8 @@ server:
       afterMiddleware: compression
       configuration:
         ignoreCertError: false # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
-        backend:
-          - path: /v2
-            url: https://larsen---toubro-infotech-ltd-dev-iptools-project-skills-app-srv.cfapps.eu10.hana.ondemand.com/
-            destination: Project_skills_app
-          - path: /odata/v4/main/
-            url: https://larsen---toubro-infotech-ltd-dev-iptools-project-skills-app-srv.cfapps.eu10.hana.ondemand.com/
-            destination: Project_skills_app
-            authenticationType: NoAuthentication
     - name: fiori-tools-preview
       afterMiddleware: fiori-tools-appreload
       configuration:
-        component: projectskillsappui
+        component: ywdynamicforms
         ui5Theme: sap_horizon

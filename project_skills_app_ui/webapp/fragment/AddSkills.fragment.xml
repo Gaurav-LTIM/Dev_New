@@ -1,0 +1,53 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	
+	<TableSelectDialog
+		id="myDialog"
+		noDataText="No Products Found"
+		title="Select Skill Cluster"
+		search=".handleSearchSkill"
+		confirm=".handleSaveSkill"
+		cancel=".handleClose"
+		multiSelect = "true"
+		items="{
+			path : '/Cluster',
+			sorter : {
+				path : 'practice',
+				descending : false
+			}
+		}">
+		<columns>
+			
+			<Column  minScreenWidth="Tablet" demandPopin="true">
+				<header>
+					<Text  text="Practice" />
+				</header>
+			</Column>
+			<Column  width="12em">
+				<header>
+					<Text  text="Skill Cluster" />
+				</header>
+			</Column>
+
+            <Column  >
+				<header>
+					<Text  text="Skill" />
+				</header>
+			</Column>
+
+			
+			
+		</columns>
+		<ColumnListItem  vAlign="Middle">
+			<cells>
+				
+				<Text  text="{practice}" />
+				<Text  text="{JSC}" />
+				<Text  text="{leaf_skills}" />
+				
+			</cells>
+		</ColumnListItem>
+		
+	</TableSelectDialog>
+</core:FragmentDefinition>

@@ -2,7 +2,7 @@
 
 specVersion: "3.1"
 metadata:
-  name: projectskillsappui
+  name: ywelementsdemo
 type: application
 server:
   customMiddleware:
@@ -16,13 +16,8 @@ server:
             - /test-resources
           url: https://ui5.sap.com
         backend:
-          - path: /v2
-            url: https://larsen---toubro-infotech-ltd-dev-iptools-project-skills-app-srv.cfapps.eu10.hana.ondemand.com/
-            destination: Project_skills_app
-          - path: /odata/v4/main/
-            url: https://larsen---toubro-infotech-ltd-dev-iptools-project-skills-app-srv.cfapps.eu10.hana.ondemand.com/
-            destination: Project_skills_app
-            authenticationType: NoAuthentication
+          - path: /sap
+            url: https://sapes5.sapdevcenter.com
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:
@@ -32,5 +27,5 @@ server:
     - name: fiori-tools-preview
       afterMiddleware: fiori-tools-appreload
       configuration:
-        component: projectskillsappui
-        ui5Theme: sap_horizon
+        component: ywelementsdemo
+        ui5Theme: sap_fiori_3

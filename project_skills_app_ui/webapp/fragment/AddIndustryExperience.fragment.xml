@@ -1,0 +1,46 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	
+	<TableSelectDialog
+		id="myDialogIndustries"
+		noDataText="No Products Found"
+		title="Select Industry Cluster"
+		search=".handleSearchIndustry"
+		confirm=".handleSaveIndustryExperience"
+		cancel=".handleClose"
+		multiSelect = "true"
+		items="{
+			path : '/Industries',
+			sorter : {
+				path : 'industry_cluster',
+				descending : false
+			}
+		}">
+		<columns>
+			<Column  width="12em">
+				<header>
+					<Text  text="Industry Cluster" />
+				</header>
+			</Column>
+
+            <Column  >
+				<header>
+					<Text  text="Industry Type" />
+				</header>
+			</Column>
+
+			
+			
+		</columns>
+		<ColumnListItem  vAlign="Middle">
+			<cells>
+				
+				<Text  text="{industry_cluster}" />
+				<Text  text="{industry_type}" />
+				
+			</cells>
+		</ColumnListItem>
+		
+	</TableSelectDialog>
+</core:FragmentDefinition>

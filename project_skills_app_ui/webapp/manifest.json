@@ -15,15 +15,23 @@
             "version": "1.14.0",
             "toolsId": "87a7f427-d23f-4cb6-b4ec-ea27f0268d92"
         },
-        
         "dataSources": {
             "main": {
                 "uri": "/v2/odata/v4/main/",
                 "type": "OData",
                 "settings": {
                     "annotations": [],
-                    "localUri": "localService/metadata.xml",
+                    "localUri": "localService/main/metadata.xml",
                     "odataVersion": "2.0"
+                }
+            },
+            "main1": {
+                "uri": "/odata/v4/main/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/main1/metadata.xml",
+                    "odataVersion": "4.0"
                 }
             }
         }
@@ -45,7 +53,7 @@
         }
     },
     "sap.ui5": {
-        "flexEnabled": true,
+        "flexEnabled": false,
         "dependencies": {
             "minUI5Version": "1.125.1",
             "libs": {
@@ -81,6 +89,16 @@
                         "sap-value-list": "none"
                     }
                 }
+            },
+            "main1": {
+                "dataSource": "main1",
+                "preload": true,
+                "settings": {
+                    "synchronizationMode": "None",
+                    "operationMode": "Server",
+                    "autoExpandSelect": true,
+                    "earlyRequests": true
+                }
             }
         },
         "resources": {
@@ -107,6 +125,62 @@
                     "target": [
                         "TargetView1"
                     ]
+                },
+                {
+                    "name": "MyProfile",
+                    "pattern": "MyProfile",
+                    "target": [
+                        "MyProfile"
+                    ]
+                },
+                {
+                    "name": "SkillScreener",
+                    "pattern": "SkillScreener",
+                    "target": [
+                        "SkillScreener"
+                    ]
+                },
+                {
+                    "name": "Training",
+                    "pattern": "Training",
+                    "target": [
+                        "Training"
+                    ]
+                },
+                {
+                    "name": "Certifications",
+                    "pattern": "Certifications",
+                    "target": [
+                        "Certifications"
+                    ]
+                },
+                {
+                    "name": "CertificationReport",
+                    "pattern": "CertificationReport",
+                    "target": [
+                        "CertificationReport"
+                    ]
+                },
+                {
+                    "name": "TrainingCourseMaster",
+                    "pattern": "TrainingCourseMaster",
+                    "target": [
+                        "TrainingCourseMaster"
+                    ]
+                },
+                {
+                    "name": "PanelSlotBooking",
+                    "pattern": "PanelSlotBooking",
+                    "target": [
+                        "PanelSlotBooking"
+                    ]
+                },
+                {
+                    "name": "AdoptionStatus",
+                    "pattern": "AdoptionStatus",
+                    "target": [
+                        "AdoptionStatus"
+                    ]
                 }
             ],
             "targets": {
@@ -116,6 +190,62 @@
                     "clearControlAggregation": false,
                     "viewId": "View1",
                     "viewName": "View1"
+                },
+                "MyProfile": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "View1",
+                    "viewName": "View1"
+                },
+                "SkillScreener": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "SkillScreener",
+                    "viewName": "SkillScreener"
+                },
+                "Training": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "Training",
+                    "viewName": "Training"
+                },
+                "Certifications": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "Certifications",
+                    "viewName": "Certifications"
+                },
+                "CertificationReport": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "CertificationReport",
+                    "viewName": "CertificationReport"
+                },
+                "TrainingCourseMaster": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "TrainingCourseMaster",
+                    "viewName": "TrainingCourseMaster"
+                },
+                "PanelSlotBooking": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "PanelSlotBooking",
+                    "viewName": "PanelSlotBooking"
+                },
+                "AdoptionStatus": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "AdoptionStatus",
+                    "viewName": "AdoptionStatus"
                 }
             }
         },

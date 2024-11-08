@@ -1,0 +1,16 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog
+		id="selectDialog"
+		title="skill"
+		items="{
+								path: '/Cluster',
+								sorter: { path: 'practice' }
+							}"
+		search=".onValueHelpSearch"
+		confirm=".onValueHelpClose"
+		cancel=".onValueHelpClose">
+		<StandardListItem 
+            id="StandardListItem"
+			title="{leaf_skills}" />
+	</SelectDialog>
+</core:FragmentDefinition>
